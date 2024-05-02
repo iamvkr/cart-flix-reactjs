@@ -10,7 +10,7 @@ const Home = () => {
   const limit = 5;
   const [isLoading, setisLoading] = useState(false)
   const dispatch = useDispatch();
-  console.log(items);
+  // console.log(items);
 
   const fetchProducts = (skip = 0) => {
     setisLoading(true)

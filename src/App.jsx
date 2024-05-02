@@ -8,6 +8,7 @@ import Navbar from './components/Navbar/Navbar'
 import { Provider } from 'react-redux'
 import { store } from './Redux/Store'
 import Cart from './pages/Cart/Cart'
+import Product from './pages/Product/Product'
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
     <Navbar/>
     <Routes>
       <Route  path='/' element={<Home/> } />
+      <Route  path='/products/:id' element={<Product/> } />
       <Route  path='/cart' element={<Cart/> } />
     </Routes>
     </BrowserRouter>

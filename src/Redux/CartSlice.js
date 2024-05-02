@@ -11,18 +11,22 @@ export const CartSlice = createSlice({
             const product = action.payload;
             const item_index = state.cartItems.findIndex(item => item.id == product.id);
             if (item_index < 0) {
+                console.log("added new");
                 // cart do not conatin product with this id, so add in cart with quantity = 1
                 state.cartItems = [...state.cartItems, { ...product, quantity: 1 }];
                 // return true;
             } else {
+                console.log("increased++");
                 // else when product already exist in cart, increase quantity of item
                 state.cartItems = state.cartItems.map((item, i) => {
                     if (item.id == (item_index + 1)) {
-                        // console.log(item_index);
+                        console.log(item_index);
                         return { ...item, quantity: (item.quantity + 1) };
                     }
+                    console.log(item_index,item.id);
                     return item;
                 });
+                console.log(state.cartItems);
             }
         },
         removeFromCart: (state, action) => {
