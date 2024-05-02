@@ -7,45 +7,43 @@ export const CartSlice = createSlice({
     name: "cart",
     initialState,
     reducers: {
-        addToCart: (state, action) => {
+        addToCart:(state, action)=>{
             const product = action.payload;
-            const item_index = state.cartItems.findIndex(item => item.id == product.id);
-            if (item_index < 0) {
-                console.log("added new");
-                // cart do not conatin product with this id, so add in cart with quantity = 1
-                state.cartItems = [...state.cartItems, { ...product, quantity: 1 }];
-                // return true;
-            } else {
-                console.log("increased++");
-                // else when product already exist in cart, increase quantity of item
-                state.cartItems = state.cartItems.map((item, i) => {
-                    if (item.id == (item_index + 1)) {
-                        console.log(item_index);
-                        return { ...item, quantity: (item.quantity + 1) };
-                    }
-                    console.log(item_index,item.id);
-                    return item;
-                });
-                console.log(state.cartItems);
+            let idx = -1;
+            // loop into cart items and check if this product exist or not:
+            for (let i = 0; i < state.cartItems.length; i++) {
+                if (state.cartItems[i].id === product.id) {
+                    idx = i;
+                    break;
+                }
+            }
+            if (idx < 0) {
+                // console.log("product doesnot exist"); // so push the product:
+                const copyProduct = {...product,quantity:1}
+                state.cartItems.push(copyProduct)
+            }else{
+                // console.log("product exist in cart at",idx); // so increase quantity:
+                state.cartItems[idx].quantity +=1 
             }
         },
-        removeFromCart: (state, action) => {
+        removeFromCart :(state, action)=>{
             const productId = action.payload.id;
-            const item = state.cartItems.find(item => item.id == productId);
-            // console.log(item);
+            let idx = -1;
+            // loop into cart items and get index of this product:
+            for (let i = 0; i < state.cartItems.length; i++) {
+                if (state.cartItems[i].id === productId) {
+                    idx = i;
+                    break;
+                }
+            }
+            // so now we have find the product in cart at index idx 
             // first check quantity of product:
-            if (item.quantity <= 1) {
+            if (state.cartItems[idx].quantity <= 1) {
                 // remove product completely
-                state.cartItems = state.cartItems.filter(item => item.id !== productId);
+                state.cartItems.splice(idx,1)
             }else{
                 // reduce quantity:
-                state.cartItems = state.cartItems.map((item, i) => {
-                    if (item.id == productId) {
-                        // console.log("done");
-                        return { ...item, quantity: (item.quantity - 1) };
-                    }
-                    return item;
-                })
+                state.cartItems[idx].quantity -= 1;
             }
         },
     }

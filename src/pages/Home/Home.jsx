@@ -7,7 +7,7 @@ import { addItems } from '../../Redux/ProductSlice'
 
 const Home = () => {
   const { items } = useSelector(state => state.products);
-  const limit = 5;
+  const limit = 8;
   const [isLoading, setisLoading] = useState(false)
   const dispatch = useDispatch();
   // console.log(items);
