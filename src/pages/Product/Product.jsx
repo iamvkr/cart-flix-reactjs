@@ -43,11 +43,11 @@ const Product = () => {
                   <div className="flex -mx-2 mb-4">
                     <div className="w-1/2 px-2">
                       {/* <button className="w-full bg-gray-900 dark:bg-gray-600 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800 dark:hover:bg-gray-700">Add to Cart</button> */}
-                      <button className="w-full text-white bg-primary hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                      <button className="w-full text-white bg-[var(--theme-bgcolor)] hover:bg-[var(--theme-hoverbgcolor)] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                       onClick={handleAddtoCart}>Add to Cart</button>
                     </div>
                     <div className="w-1/2 px-2">
-                      <button className=" w-full text-white bg-primary hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Buy Now</button>
+                      <button className=" w-full text-white bg-[var(--theme-bgcolor)] hover:bg-[var(--theme-hoverbgcolor)] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Buy Now</button>
                     </div>
                   </div>
                 </div>

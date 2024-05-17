@@ -22,11 +22,11 @@ const Home = () => {
           setisLoading(false)
         }, 1000);
       })
-      .catch(err=>{
+      .catch(err => {
         setTimeout(() => {
           setisLoading(false)
         }, 1000);
-        console.log("some error",err);
+        console.log("some error", err);
       });
   }
 
@@ -65,13 +65,15 @@ const Home = () => {
             return <Cards key={index} data={item} />
           })}
         </div>
-        <div className='text-center my-3'>
-          <button className='px-3 py-2 border-primary border-2 bg-white' onClick={handleLoadMore}>Load More</button>
-        </div>
         {/* loader */}
-        {isLoading && <div className={`h-screen w-screen bg-[#00000040] fixed top-0 left-0 flex justify-center items-center text-white`}>
+        {isLoading ? (<div className={`h-screen w-screen bg-[#00000040] fixed top-0 left-0 flex justify-center items-center text-white`}>
           <span className="loading loading-spinner loading-lg"></span>
-        </div>}
+        </div>)
+          :
+          (<div className='text-center my-3'>
+            <button className='px-3 py-2 border-[var(--theme-bgcolor)] border-2 bg-white' onClick={handleLoadMore}>Load More</button>
+          </div>)
+        }
 
       </div>
     </div>

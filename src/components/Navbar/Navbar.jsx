@@ -19,7 +19,7 @@ const Navbar = () => {
     },
   ]
   return (
-    <div className="navbar md:px-10 mb-2 shadow bg-primary sticky top-0">
+    <div className="navbar md:px-10 mb-2 shadow bg-[var(--theme-bgcolor)] sticky top-0">
       <div className="flex-1 md:ms-3">
         {/* bar icon */}
 
@@ -49,9 +49,9 @@ const Navbar = () => {
           <div tabIndex={0} className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow">
             <div className="card-body">
               <span className="font-bold text-lg">{totalItems} Items</span>
-              <span className="text-primary">Subtotal:${totalPrice}</span>
+              <span className="text-[var(--theme-bgcolor)]">Subtotal:${totalPrice}</span>
               <div className="card-actions">
-                <Link to={"/cart"} className="btn btn-primary btn-block">View cart</Link>
+                <Link to={"/cart"} className="btn bg-[var(--theme-bgcolor)] text-white hover:bg-[var(--theme-hoverbgcolor)] btn-block">View cart</Link>
               </div>
             </div>
           </div>

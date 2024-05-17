@@ -6,6 +6,11 @@
 body{
   @apply bg-slate-200 h-screen
 }
+
+:root {
+  --theme-bgcolor: #3352b2;
+  --theme-hoverbgcolor: #4a6dd6;
+}
 /* #root {
   max-width: 1280px;
   margin: 0 auto;
