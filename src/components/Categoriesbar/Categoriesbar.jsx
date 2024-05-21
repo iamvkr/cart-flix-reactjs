@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Categoriesbar = () => {
     const categories = [
@@ -31,7 +32,11 @@ const Categoriesbar = () => {
         )
     }
     return (
-        <div className='cursor-pointer'>{categories.map((items, i) => <p key={i} className='flex w-full p-1 border-b-2 capitalize'>{arrow()}{items}</p>)}</div>
+        
+        <div className=''>{categories.map((item, i) => {
+            return (<Link key={i} to={`/category/${item}`}><p  className='flex w-full p-1 border-b-2 capitalize'>{arrow()}{item}</p></Link>)
+        })}</div>
+        
     )
 }
 

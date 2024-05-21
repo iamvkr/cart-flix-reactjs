@@ -11,7 +11,7 @@ const Product = () => {
   // console.log(params);
   const itemData = JSON.parse(sessionStorage.getItem("currSelectedProduct")) || null;
   const {title, thumbnail,description,price,stock,discountPercentage,images,brand,category} = itemData;
-  console.log(itemData);
+  // console.log(itemData);
 
   const handleAddtoCart=()=>{
     console.log("a");
@@ -23,7 +23,7 @@ const Product = () => {
     <div className='bg-slate-200 flex w-full h-full'>
       {/* left section */}
       <div className="categories bg-white w-72 ps-3 hidden md:block">
-        <p className=' p-1 text-xl font-bold'>Categories</p>
+        <div className=' p-1 text-xl font-bold'>Categories</div>
         <Categoriesbar />
       </div>
 
