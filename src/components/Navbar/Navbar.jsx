@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Categoriesbar from '../Categoriesbar/Categoriesbar';
+import SearchBar from './SearchBar';
 
 
 const Navbar = () => {
@@ -10,6 +11,22 @@ const Navbar = () => {
   const totalItems = cartItems.reduce((acc, curr) => acc + (curr.quantity), 0);
 
   const [sidebarOpend, setsidebarOpend] = useState(false);
+  const [serachBarVisible, setserachBarVisible] = useState(false);
+
+  const navigate = useNavigate();
+
+  const [searchValue,setsearchValue] = useState("");
+    const handlechange = (e)=>{
+        setsearchValue(e.target.value);
+    }
+    const handleSubmit = (e)=>{
+        e.preventDefault();
+        if (!searchValue) {
+            alert("value cannot be empty!!");
+            return;
+        }
+        navigate(`/search/${searchValue}`)
+    }
 
   const menus = [
     {
@@ -59,15 +76,19 @@ const Navbar = () => {
         <div className='flex h-full items-center'>
           {/* search section */}
           <div>
-            {/* icon */}
-            <div className='md:hidden text-white ms-auto me-2'>
+            {/* search icon */}
+            <div className='md:hidden text-white ms-auto me-2'
+              onClick={() => setserachBarVisible(true)}>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                 <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
               </svg>
             </div>
             {/* input  box */}
             <div className="form-control ms-2 md:ms-auto me-2 hidden md:block ">
-              <input type="text" placeholder="Search" className="input input-bordered w-24 h-8 md:w-96 rounded-[2px]" />
+              <form onSubmit={handleSubmit}>
+                <input type="text" placeholder="Search" className="input input-bordered w-24 h-8 md:w-96 rounded-[2px]"
+                value={searchValue} onChange={handlechange} />
+              </form>
             </div>
           </div>
           {/* section end end */}
@@ -107,6 +128,16 @@ const Navbar = () => {
       {sidebarOpend && (<div className='md:hidden bg-white max-h-[90vh] overflow-auto p-2 anim'
         onClick={() => { setsidebarOpend(false) }}>
         <Categoriesbar />
+      </div>)}
+
+      {serachBarVisible && (<div className='bg-white p-2 md:hidden'>
+        <SearchBar 
+        setserachBarVisible={setserachBarVisible}
+        searchValue = {searchValue}
+        handlechange = {handlechange}
+        handleSubmit = {handleSubmit}
+        setsearchValue = {setsearchValue}
+         />
       </div>)}
     </div>
   )

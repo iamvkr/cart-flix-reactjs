@@ -7,6 +7,7 @@ import { store } from './Redux/Store'
 import Cart from './pages/Cart/Cart'
 import Product from './pages/Product/Product'
 import Categories from './pages/Categories/Categories'
+import Search from './pages/Search/Search'
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
       <Route  path='/' element={<Home/> } />
       <Route  path='/products/:id' element={<Product/> } />
       <Route  path='/category/:id' element={<Categories/> } />
+      <Route  path='/search/:term' element={<Search/> } />
       <Route  path='/cart' element={<Cart/> } />
     </Routes>
     </BrowserRouter>
