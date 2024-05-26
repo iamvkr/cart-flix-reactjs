@@ -39,7 +39,7 @@ const Navbar = () => {
     },
   ]
   return (
-    <div className=" md:px-10 mb-2 shadow bg-[var(--theme-bgcolor)] sticky top-0 min-h-16 pt-2">
+    <div className=" md:px-10 mb-2 shadow bg-[var(--theme-bgcolor)] sticky top-0 min-h-16 pt-2 z-10">
       <div className="flex justify-between md:ms-3 w-full">
 
         {/* nav section 1*/}

@@ -8,6 +8,7 @@ import Cart from './pages/Cart/Cart'
 import Product from './pages/Product/Product'
 import Categories from './pages/Categories/Categories'
 import Search from './pages/Search/Search'
+import LoginSignup from './pages/Login/LoginSignup'
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
       <Route  path='/category/:id' element={<Categories/> } />
       <Route  path='/search/:term' element={<Search/> } />
       <Route  path='/cart' element={<Cart/> } />
+      <Route  path='/login' element={<LoginSignup/> } />
     </Routes>
     </BrowserRouter>
     </Provider>
