@@ -6,14 +6,14 @@ import { addToCart, removeFromCart } from '../../Redux/CartSlice';
 const Cart = () => {
   const { cartItems } = useSelector(state => state.cart);
   const dispatch = useDispatch();
-  const total = cartItems.reduce((acc, curr) => acc + (((curr.price * 100)  * curr.quantity)/100), 0);
+  const total = cartItems.reduce((acc, curr) => ( ((acc * 100) + ((curr.price * 100)  * curr.quantity))/100), 0);
 
-  const [cart, setCart] = useState([]);
-  const products = [
-    { id: 1, name: 'Product 1', price: 10 },
-    { id: 2, name: 'Product 2', price: 20 },
-    { id: 3, name: 'Product 3', price: 30 },
-  ];
+  // const [cart, setCart] = useState([]);
+  // const products = [
+  //   { id: 1, name: 'Product 1', price: 10 },
+  //   { id: 2, name: 'Product 2', price: 20 },
+  //   { id: 3, name: 'Product 3', price: 30 },
+  // ];
 
   const handleIncrease = (item) => {
     dispatch(addToCart(item))

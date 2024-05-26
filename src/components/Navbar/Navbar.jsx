@@ -7,7 +7,7 @@ import SearchBar from './SearchBar';
 
 const Navbar = () => {
   const { cartItems } = useSelector(state => state.cart);
-  const totalPrice = cartItems.reduce((acc, curr) => acc + (curr.price * curr.quantity), 0);
+  const totalPrice = cartItems.reduce((acc, curr) => ( ((acc * 100) + ((curr.price * 100)  * curr.quantity))/100), 0);
   const totalItems = cartItems.reduce((acc, curr) => acc + (curr.quantity), 0);
 
   const [sidebarOpend, setsidebarOpend] = useState(false);
