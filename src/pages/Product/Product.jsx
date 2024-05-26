@@ -25,14 +25,10 @@ const Product = () => {
   });
 
   const dispatch = useDispatch();
-  // const params = useParams();
-  // console.log(params);
   const itemData = JSON.parse(sessionStorage.getItem("currSelectedProduct")) || null;
   const { title, thumbnail, description, price, stock, discountPercentage, images, brand, category } = itemData;
-  // console.log(itemData);
 
   const handleAddtoCart = () => {
-    console.log("a");
     dispatch(addToCart(itemData))
   }
 
@@ -73,9 +69,6 @@ const Product = () => {
                                 <img className="h-full w-80 object-contain" src={image} alt="Product Image" />
                               </div>)
                           })}
-                          {/* <div className="swiper-slide">Slide 1</div>
-                        <div className="swiper-slide">Slide 2</div>
-                        <div className="swiper-slide">Slide 3</div> */}
                         </div>
                         {/* <!-- If we need pagination --> */}
                         {/* <div className="swiper-pagination"></div> */}
@@ -88,7 +81,6 @@ const Product = () => {
                         {/* <div className="swiper-scrollbar"></div> */}
                       </div>
                     </div>
-                    {/* <img className="w-full h-full object-contain" src={images[2]} alt="Product Image" /> */}
                   </div>
                   <div className="flex -mx-2 mb-4">
                     <div className="w-1/2 px-2">
@@ -128,21 +120,12 @@ const Product = () => {
                     <span className="font-bold text-gray-700 dark:text-gray-300">Brand:</span>
                     <div className="flex items-center mt-2">
                       {brand}
-                      {/* <button className="w-6 h-6 rounded-full bg-gray-800 dark:bg-gray-200 mr-2"></button>
-                      <button className="w-6 h-6 rounded-full bg-red-500 dark:bg-red-700 mr-2"></button>
-                      <button className="w-6 h-6 rounded-full bg-blue-500 dark:bg-blue-700 mr-2"></button>
-                      <button className="w-6 h-6 rounded-full bg-yellow-500 dark:bg-yellow-700 mr-2"></button> */}
                     </div>
                   </div>
                   <div className="mb-4">
                     <span className="font-bold text-gray-700 dark:text-gray-300">Category:</span>
                     <div className="flex items-center mt-2">
                       {category}
-                      {/* <button className="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 dark:hover:bg-gray-600">S</button>
-                      <button className="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 dark:hover:bg-gray-600">M</button>
-                      <button className="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 dark:hover:bg-gray-600">L</button>
-                      <button className="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 dark:hover:bg-gray-600">XL</button>
-                      <button className="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 dark:hover:bg-gray-600">XXL</button> */}
                     </div>
                   </div>
                   <div>
@@ -155,8 +138,7 @@ const Product = () => {
               </div>
             </div>
           </div>
-
-          {/* product display goes here */}
+          {/* product display ends here */}
         </div>
       </div>
 
